@@ -32,53 +32,71 @@ def var_generator(n):
     return list, rint
 
 def uns_iterative1(n):
-    start = timeit.default_timer()
-    def var_generator(n):
-        list = []
-        rint = []
-        rint.append(random.randint(0,n-1))
-        for i in range(n):
-            list.append(random.randint(10,n*10))
-        return list, rint
-    temp = (var_generator(n))
-    arr = temp[0]
-    x = temp[1]
-    index = 0
-    for y in arr:
-        if y == x:
-            stop = timeit.default_timer()
-            return (stop - start)
-        index += 1
-    stop = timeit.default_timer()
-    return (stop - start);
+    time = []
+    for i in range(10):
+        start = timeit.default_timer()
+        def var_generator(n):
+            list = []
+            rint = []
+            rint.append(random.randint(0,n-1))
+            for i in range(n):
+                list.append(random.randint(10,n*10))
+            return list, rint
+        temp = (var_generator(n))
+        arr = temp[0]
+        x = temp[1]
+        index = 0
+        for y in arr:
+            if y == x:
+                stop = timeit.default_timer()
+                time = time + stop - start
+            index += 1
+        stop = timeit.default_timer()
+        time = time + stop - start
+    return time/10
 avr_time_uns_iterative1 = sum(uns_iterative1(100) for i in range(10)) / 10
 
 def s_iterative_binary(n):
-    start = timeit.default_timer()
-    def var_generator(n):
-        list = []
-        rint = []
-        rint.append(random.randint(0,n-1))
-        for i in range(n):
-            list.append(random.randint(10,n*10))
-        return list, rint
-    temp = (var_generator(n))
-    arr = temp[0]
-    x = temp[1]    
-    low = 0
-    high = len(arr) - 1
-    mid = 0
-    while low <= high:
-        mid = (high + low) // 2
-        if arr[mid] < x:
-            low = mid + 1
-        elif arr[mid] > x:
-            high = mid - 1
-        else:
-            return mid
-    return -1
-
-print(s_iterative_binary(100))
-
+    time = 0
+    for i in range(10):
+        start = timeit.default_timer()
+        def var_generator(n):
+            list = []
+            rint = []
+            rint.append(random.randint(0,n-1))
+            for i in range(n):
+                list.append(random.randint(10,n*10))
+            return list, rint
+        temp = (var_generator(n))
+        arr = temp[0]
+        x = temp[1]    
+        low = 0
+        high = len(arr) - 1
+        mid = 0
+        while low <= high:
+            mid = (high + low) // 2
+            if arr[mid] < x[0]:
+                low = mid + 1
+            elif arr[mid] > x[0]:
+                high = mid - 1
+            else:
+                stop = timeit.default_timer()
+        stop = timeit.default_timer()
+        time = time + stop - start
+    return time/10
 
 def s_recursive_binary(arr,x):
+    time = 0
+    for i in range(10):
+        start = timeit.default_timer()
+        def var_generator(n):
+            list = []
+            rint = []
+            rint.append(random.randint(0,n-1))
+            for i in range(n):
+                list.append(random.randint(10,n*10))
+            return list, rint
+        temp = (var_generator(n))
+        arr = temp[0]
+        x = temp[1]
+        

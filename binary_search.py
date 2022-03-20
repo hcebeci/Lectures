@@ -64,4 +64,5 @@ def binary_search_recursive2(arr, x, low, high):
         return binary_search_recursive2(arr, x, midindex + 1, high)
 
 arr = [1,3,5,9]
-print(binary_search_recursive(arr, 7), binary_search_recursive2(arr, 7, 0, len(arr) - 1))
+print(binary_search_recursive(arr, 7)) #, binary_search_recursive2(arr, 7, 0, len(arr) - 1))
+print(arr)

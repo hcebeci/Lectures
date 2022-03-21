@@ -99,4 +99,22 @@ def s_recursive_binary(arr,x):
         temp = (var_generator(n))
         arr = temp[0]
         x = temp[1]
+        if len(arr) == 0:
+            return -1;
+
+        midindex = len(arr) // 2
+        if (arr[midindex] == x):
+            return midindex
+        elif arr[midindex] > x:
+            return binary_search_recursive(arr[:midindex], x)
+        else: #arr[midindex] < x:
+            retindex = binary_search_recursive(arr[midindex + 1:], x)
+            if retindex == -1:
+                stop = timeit.default_timer()
+                time = time + stop - start
+            else:
+                stop = timeit.default_timer()
+                time = time + stop - start    
+    return time/10
+
         

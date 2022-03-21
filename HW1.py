@@ -106,9 +106,9 @@ def s_recursive_binary(n):
         if (arr[midindex] == x):
             return midindex
         elif arr[midindex] > x:
-            return binary_search_recursive(arr[:midindex], x)
+            return s_recursive_binary(arr[:midindex], x)
         else: #arr[midindex] < x:
-            retindex = binary_search_recursive(arr[midindex + 1:], x)
+            retindex = s_recursive_binary(arr[midindex + 1:], x)
             if retindex == -1:
                 stop = timeit.default_timer()
                 time = time + stop - start

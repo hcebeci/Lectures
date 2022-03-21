@@ -66,7 +66,7 @@ def s_iterative_binary(n):
             rint.append(random.randint(0,n-1))
             for i in range(n):
                 list.append(random.randint(10,n*10))
-            return list, rint
+            return sorted(list), rint
         temp = (var_generator(n))
         arr = temp[0]
         x = temp[1]    
@@ -85,7 +85,7 @@ def s_iterative_binary(n):
         time = time + stop - start
     return time/10
 
-def s_recursive_binary(arr,x):
+def s_recursive_binary(n):
     time = 0
     for i in range(10):
         start = timeit.default_timer()
@@ -95,7 +95,7 @@ def s_recursive_binary(arr,x):
             rint.append(random.randint(0,n-1))
             for i in range(n):
                 list.append(random.randint(10,n*10))
-            return list, rint
+            return sorted(list), rint
         temp = (var_generator(n))
         arr = temp[0]
         x = temp[1]
@@ -116,5 +116,7 @@ def s_recursive_binary(arr,x):
                 stop = timeit.default_timer()
                 time = time + stop - start    
     return time/10
+
+print(s_recursive_binary(100))
 
         

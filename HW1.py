@@ -26,8 +26,8 @@ def uns_iterative1(n):
     return time/10
 avr_time_uns_iterative1 = sum(uns_iterative1(100) for i in range(10)) / 10
 
-time5 = []
-for sayi in range(n):
+time5 = 0
+for sayi in range(len(n)):
     for i in range(10):
         def var_generator(n):
             list = []
@@ -56,10 +56,10 @@ for sayi in range(n):
                     mid
             return -1
         stop = timeit.default_timer()
-        time5[n] = time5[n] + (stop - start)/10
+        time5 = time5 + (stop - start)/10
 
-time6 = []
-for sayi in range(n):
+time6 = 0
+for sayi in range(len(n)):
     for i in range(10):
         def var_generator(n): ### fonksiyonu tanimlamisim ama aslinda fonksiyonu calistirmam lazim. parantez icine gelen sayiyla
             list = []
@@ -90,7 +90,7 @@ for sayi in range(n):
                 else:
                     return midindex + 1 + retindex  
         stop = timeit.default_timer()
-        time6[n] = time6[n] + (stop - start)/10
+        time6 = time6 + (stop - start)/10
     
 
         

@@ -9,15 +9,13 @@ Suppose s > --- > u > --- > v is a shortest path from s to v. This implies that 
 This can be proven by contradiction. If there is a shorter path between s and u, we can replace s > --- > u with the shorter path in s > --- > u > --- > v, and this would yield a better path between s and v. But we assumed that
 s > --- > u > --- > v is a shortest path between s and v, so have a contradiction.
 
-Based on this optimal sub-structure, we can write down the recursive formulation of the single source shortest path problem as the following:
-
 ## Formulation
 
-Let G = (N, A) be a graph with node set N and arc set A. Let d(u, v) be the length of the arc (u, v) in A.
+Let G = (N, A) be a graph with node set N and arc set A. Let d(u, v) > 0 be the length of the arc (u, v) in A.
 
 Define SP(s, v) as the length of the shorthest path between nodes s and v for and s and v in N:
 
-SP(s, v) = min {SP(s, u) + d(u, v) | (u, v) in A}
+SP(s, v) = min { SP(s, u) + d(u, v) | (u, v) in A }
 
 ## Discussion point
 

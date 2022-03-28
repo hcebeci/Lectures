@@ -1,32 +1,59 @@
-class Apple:
-    i = 10
+class Fruit:
 
-    def __init__(self) -> None: # a constructor function for instance objects
+    def __init__(self, color) -> None: 
+        self._color = color
+
+    def print(self):
+        print ("I am", self.FruitName(), "of color", self._color)
+
+    def FruitName(self):
         pass
 
-    def __init__(self, color, size = 'sz') -> None: # a constructor function for instance objects
-        self._color = color # here we define a new attribute for instance object of Apple
-        self._size = size # here we define a new attribute for instance object of Apple
+class Apple(Fruit): 
+    
+    # Apple inherits from Fruit
+    # Apple is a specialization of the Fruit concept
+    # Fruit is a generalization of Apple
+    # Attributes and functions of Fruit is a proper subset of Apple
+    # All attributes and functions of Fruit is also inherited by Apple
+    # Apple is a sub-class of Fruit
+    # Fruit is a base class of Apple
 
-    def f():
-        print (3)
-        print (Apple.i)
+    def FruitName(self): 
+        # Function override: This function overrides Fruit.FruitName
 
-    def g(self): # is a method of an instance object of Apple
-        pass
+        return "an apple"
 
-# This the end of the class declaration. Python creates an object of class Apple 
-# (not an instance object but a class object) automatically
+class Banana(Fruit):
 
-print (Apple.i)
-Apple.f() # f is a function of class Apple
+    def FruitName(self): #
+        return "a banana"
 
-x = Apple("red", "large") # creates an instance object. This implicitly calls Apple.__init__(x)
-x.i = 20
-y = Apple("green")
-y.i = 30
+class Orange(Fruit):
 
-print (x._color) ## not object oriented
-print (y._color)
+    def FruitName(self): #
+        return "an orange"
 
-x.g() # Python calls Apple.g(x)
+
+##################################################
+# Construction part 
+
+fruits = []
+fruits.append(Apple("red"))
+fruits.append(Banana("yellow"))
+fruits.append(Apple("red"))
+fruits.append(Orange("red"))
+fruits.append(Apple("green"))
+fruits.append(Banana("brow"))
+
+
+
+###############################################
+# ALgorithm part
+
+# POLYMORPHISM
+# Code is written in an abstract manner without caring about specific classes of objects
+# But objects behave as their own identity.
+
+for fruit in fruits:
+    fruit.print()

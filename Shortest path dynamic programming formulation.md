@@ -17,6 +17,8 @@ Define SP(s, v) as the length of the shorthest path between nodes s and v for an
 
 SP(s, v) = min { SP(s, u) + d(u, v) | (u, v) in A }
 
+SP(s, s) = 0
+
 ## Discussion point
 
 Discuss the need for a stopping condition for the recursive formula.

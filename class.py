@@ -1,3 +1,6 @@
+from pydoc import classname
+
+
 class Fruit:
 
     def __init__(self, color) -> None: 
@@ -56,4 +59,5 @@ fruits.append(Banana("brow"))
 # But objects behave as their own identity.
 
 for fruit in fruits:
+    print(type(fruit).__name__)
     fruit.print()

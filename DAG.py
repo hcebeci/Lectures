@@ -1,10 +1,10 @@
 
 # not object oriented!!
-
 class Node:
-    def __init__(self, code: str) -> None:
+    def __init__(self, code: str,successor_nodes = [],predecessor_nodes = []) -> None:
+        self.successor_nodes = successor_nodes
+        self.predecessor_nodes = predecessor_nodes
         self.code = code
-        
 class DAG:
     def __init__(self) -> None:
          self.nodes = []
@@ -17,6 +17,18 @@ class DAG:
          self.arcs.append(Arc(self.nodes[0], self.nodes[1], 3))
          self.arcs.append(Arc(self.nodes[0], self.nodes[2], 10))
          self.arcs.append(Arc(self.nodes[1], self.nodes[2], 5))
+
+    def initialize_pred_succ_nodes(self):   #nodedaki listeleri dolduracak function
+        for node in self.nodes:
+            for arc in self.arcs:
+                if node == arc.from_node:
+                    num = arc.to_node.code
+                    node.successor_nodes.append(Node(num))#.append(Node(num))
+                    print('node', node.code, ' dan sonra gelen node', num)
+                if node == arc.to_node:
+                    num = arc.from_node.code
+                    node.predecessor_nodes.append(Node(num))
+                    print('node', node.code, ' dan once gelen node', num)
 
     def incomming_arcs(self, v: Node):
         # Discuss performance
@@ -44,9 +56,13 @@ class Arc:
         self.distance = distance
 
 d = DAG()
+#for a in d.arcs:
+#   print(a.from_node.successor_nodes)
+d.initialize_pred_succ_nodes()
+print(Node(1).successor_nodes.code,Node(1).predecessor_nodes.code)
 
 # Really. Not object oriented!!
-print (d.SP(d.nodes[0], d.nodes[2]))
+#print (d.SP(d.nodes[0], d.nodes[2]))
 
 
 
